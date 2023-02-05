@@ -1,0 +1,20 @@
+
+.image-logo{
+    height:32px ;
+    width: 32px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1 0 auto;
+
+}
+.footer{
+    flex-shrink: 0;
+
+}
