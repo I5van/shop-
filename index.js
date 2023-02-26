@@ -9,3 +9,6 @@ app.listen(port,()=>{
     console.log("Start to listen port")
 })
 app.use(express.static("static"))
+app.get("/catalogue",(request,response) =>{
+    response.sendFile(__dirname+"/index/catalogue.html")
+})

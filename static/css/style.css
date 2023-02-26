@@ -117,6 +117,7 @@ main{
     top: 0;
     left: 0;
     z-index: 0;
+    transition-duration: 0.3s;
 }
 .content-head{
     text-decoration: none;
@@ -126,14 +127,31 @@ main{
     text-shadow: 1px 1px black;
     left: 10%;
     font-size: 30px;
+    transition-duration: 0.3s;
 }
 .goalkeeper .content-head{
     font-size: 25px;
 }
 
-.filter-layer:hover{
+/* .filter-layer:hover{
     backdrop-filter: blur(7px) brightness(80%);
 }
 .goalkeeper:hover{
     font-size: 40px;
+} */
+.effect:hover .filter-layer{
+     cursor: pointer;
+    backdrop-filter: blur(7px) brightness(80%);
+    transition-duration: 0.3s;
+}
+.effect:hover .content-head{
+    font-size: 2.3em;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.effect{
+    transition-duration: 0.3s;
+}
+body{
+    background-color: rgba(231, 230, 230, 0.984);
 }
