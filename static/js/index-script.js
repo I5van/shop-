@@ -9,3 +9,5 @@ function redirect(event){
 for(let i = 0; i<effects.length;i++){
     effects[i].onclick= redirect
 }
+uniform = effects[0].onclick.window.locatiom.search
+console.log(uniform)
