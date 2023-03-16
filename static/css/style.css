@@ -84,6 +84,7 @@ main{
     height:200px;
     margin-top: 25px;
     position: relative;
+
 }
 .goalkeeper{
     background-image:url("../img/goalkeeper.jpg");
@@ -152,6 +153,7 @@ main{
 .effect{
     transition-duration: 0.3s;
 }
-body{
-    background-color: rgba(231, 230, 230, 0.984);
+div[category]{
+    box-shadow: 5px 3px 3px rgb(121, 120, 120);
+
 }
