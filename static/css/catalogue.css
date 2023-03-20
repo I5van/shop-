@@ -1,18 +1,20 @@
-.content{
+.contents{
     display: flex;
 	width: 100%;
 	flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 3vw;
+
 
 
 }
 .filters{
     background: rgb(196, 194, 194);
-    width:25% ;
-	
-    display: flex;
+    width:30vw ;
+	display: flex;
     align-self: flex-start;
     flex-direction: column;
+    padding: 20px;
 }
 .products{
     display: flex;
@@ -21,6 +23,12 @@
 	background: rgb(35, 33, 33);
     align-self: flex-end;
 }
-#customRange1{
-   
+.size{
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.product-type{
+    font-size: 25px;
+    font-weight: 400;
 }
