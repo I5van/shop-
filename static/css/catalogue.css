@@ -1,0 +1,26 @@
+.content{
+    display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+    justify-content: center;
+
+
+}
+.filters{
+    background: rgb(196, 194, 194);
+    width:25% ;
+	
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+}
+.products{
+    display: flex;
+    width:45% ;
+	height: 571px;
+	background: rgb(35, 33, 33);
+    align-self: flex-end;
+}
+#customRange1{
+   
+}
