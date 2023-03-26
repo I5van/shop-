@@ -1,3 +1,4 @@
+let aaplyFilterButton=document.querySelector(".btn" )
 function createParamObj() {
     let urlParams=window.location.search
     urlParams = urlParams.slice(1,urlParams.length)
@@ -24,3 +25,7 @@ function createParamObj() {
 
 let params = createParamObj()
 console.log(params)
+function applyFilter(){
+    
+}
+applyFilterButton.onclick = applyFilter
