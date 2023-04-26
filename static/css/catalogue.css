@@ -50,3 +50,29 @@ datalist option{
 .filters button{
     margin-top: 30px;
 }
+#clothes-size{
+    display: none;
+}
+#gloves-size{
+    display: none;
+}
+#boots-size{
+    display: none;
+}
+.cost-header{
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+.cost{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+#product-cost-min{
+    width: 35% !important;
+}
+#product-cost-max{
+    width: 35% !important;
+}

@@ -31,8 +31,8 @@
   <main>
     <div class="contents">
       <div class="filters">
-        <p class="product-type">Вид товара</p>
         <form action="">
+          <p class="product-type">Вид товара</p>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="item-type-football-clothes">
             <label class="form-check-label" for="flexCheckDefault">
@@ -52,7 +52,7 @@
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="item-type-goalkeeper-form">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-goalkeeper">
             <label class="form-check-label" for="flexCheckChecked">
               <span>Вратарская форма</span>
             </label>
@@ -70,19 +70,30 @@
               <span>Аксессуары</span>
             </label>
           </div>
+          <h3 class="cost-header">Цена</h3>
+          <div class="cost">
+            <input type="number" class="form-control" id="product-cost-min" aria-describedby="emailHelp">
+            <span>&mdash;</span>
+            <input type="number" class="form-control" id="product-cost-max" aria-describedby="emailHelp">
+
+          </div>
+
+
+
+
           <div id="clothes-size">
             <label for="customRange3" class="form-label">
               <p class="size">Размер одежды</p>
             </label>
-            <input type="range" class="form-range" min="0" max="5" step="1" id="customRange3"
+            <input type="range" class="form-range" min="38" max="48" step="2" id="customRange3"
               list="clothes-size"></label>
-            <datalist id="clothes-size">
-              <option value="0" label="S"></option>
-              <option value="1" label="M"></option>
-              <option value="2" label="L"></option>
-              <option value="3" label="XL"></option>
-              <option value="4" label="XXL"></option>
-              <option value="5" label="XXXL"></option>
+            <datalist>
+              <option value="38" label="S"></option>
+              <option value="40" label="M"></option>
+              <option value="42" label="L"></option>
+              <option value="44" label="XL"></option>
+              <option value="46" label="XXL"></option>
+              <option value="48" label="XXXL"></option>
             </datalist>
           </div>
 
@@ -90,35 +101,35 @@
             <label for="customRange3" class="form-label">
               <p class="size">Размер обуви</p>
             </label>
-            <input type="range" class="form-range" min="0" max="9" step="1" id="customRange3" list="boots-size"></label>
-            <datalist id="boots-size">
-              <option value="0" label="38"></option>
-              <option value="1" label="39"></option>
-              <option value="2" label="40"></option>
-              <option value="3" label="41"></option>
-              <option value="4" label="42"></option>
-              <option value="5" label="43"></option>
-              <option value="6" label="44"></option>
-              <option value="7" label="45"></option>
-              <option value="8" label="46"></option>
-              <option value="9" label="47"></option>
+            <input type="range" class="form-range" min="38" max="47" step="1" id="customRange3" list="boots-size"></label>
+            <datalist>
+              <option value="38" label="38"></option>
+              <option value="39" label="39"></option>
+              <option value="40" label="40"></option>
+              <option value="41" label="41"></option>
+              <option value="42" label="42"></option>
+              <option value="43" label="43"></option>
+              <option value="44" label="44"></option>
+              <option value="45" label="45"></option>
+              <option value="46" label="46"></option>
+              <option value="47" label="47"></option>
             </datalist>
           </div>
           <div id="gloves-size">
             <label for="customRange3" class="form-label">
               <p class="size">Размер перчаток</p>
             </label>
-            <input type="range" class="form-range" min="0" max="7" step="1" id="customRange3"
+            <input type="range" class="form-range" min="5" max="11" step="1" id="customRange3"
               list="gloves-size"></label>
-            <datalist id="gloves-size">
-              <option value="0" label="5"></option>
-              <option value="1" label="6"></option>
-              <option value="2" label="7"></option>
-              <option value="3" label="8"></option>
-              <option value="4" label="9"></option>
-              <option value="5" label="10"></option>
-              <option value="6" label="11"></option>
-              <option value="7" label="12"></option>
+            <datalist>
+              <option value="5" label="5"></option>
+              <option value="6" label="6"></option>
+              <option value="7" label="7"></option>
+              <option value="8" label="8"></option>
+              <option value="9" label="9"></option>
+              <option value="10" label="10"></option>
+              <option value="11" label="11"></option>
+             
 
             </datalist>
           </div>
@@ -129,6 +140,7 @@
         products
       </div>
     </div>
+
 
 
 
