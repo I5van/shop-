@@ -74,78 +74,97 @@ app.get("/catalogue", (request, response) => {
 //             }
 
 //         }
-       
+
 //     }
 //     return obj
 // }
 
 // let n = CreateObj()
 // console.log(n)
-function saveData (filename, data) {
+function saveData(filename, data) {
     console.log(data)
     fs.writeFile(filename, data, (error) => {
-        if(error) throw error; 
+        if (error) throw error;
         console.log("Асинхронная запись файла завершена. ");
 
-        
+
     });
 }
-function openFile(filename){
-    
-    fs.readFile(filename,"utf8", (error, data) => {
-        
-    if(error){
+function openFile(filename) {
+
+    fs.readFile(filename, "utf8", (error, data) => {
+
+        if (error) {
             console.log("Ошибка чтения")
             console.log(error)
             return
-    }
-        let sum=0
+        }
+        let sum = 0
         let n = data.split(" ")
-        let j =0
-    for(let i=0; i<n.length;i++){
-        sum = sum + Number(n[i])
-        j=j+1
-    }
-        m = sum/j
-        saveData ("output.txt" , m.toString())
-    } )
-    
+        let j = 0
+        for (let i = 0; i < n.length; i++) {
+            sum = sum + Number(n[i])
+            j = j + 1
+        }
+        m = sum / j
+        saveData("output.txt", m.toString())
+    })
+
 }
 let result = openFile("input.txt")
 
 let adidas = {
     name: "Бутсы Adidas Predator",
-    cost:39999,
-    size:[42,43,44,45],
-    description:"здесь будет описание"
+    cost: 39999,
+    size: [42, 43, 44, 45],
+    description: "здесь будет описание"
 }
-let nike ={
-    name:"Nike Mercurial",
-    cost:34999,
-    size:[42,43,44,45],
-    description:"здесь будет описание"
+let nike = {
+    name: "Nike Mercurial",
+    cost: 34999,
+    size: [42, 43, 44, 45],
+    description: "здесь будет описание"
 }
 let puma = {
-    name:"Puma Future",
-    cost:9999,
-    size:[7,8,9,10],
-    description:"здесь будет описание"
+    name: "Puma Future",
+    cost: 9999,
+    size: [7, 8, 9, 10],
+    description: "здесь будет описание"
 }
-products=[adidas, nike, puma]
+products = [adidas, nike, puma]
 
-function saveProducts(filename, products){
-    let dataToSave=JSON.stringify(products)
-    
+function saveProducts(filename, products) {
+    let dataToSave = JSON.stringify(products)
+
     saveData(filename, dataToSave)
 }
 // saveProducts("products.json",products)
-function loadProducts(filename){
-        let downloadData = fs.readFileSync(filename)
-        loadedProduct=JSON.parse(downloadData)
-        return loadedProduct
+function loadProducts(filename) {
+    let downloadData = fs.readFileSync(filename)
+    loadedProduct = JSON.parse(downloadData)
+    return loadedProduct
+}
+
+
+function searchingTypeFigure(filename) {
+    let figure = loadProducts(filename)
+    let output = {}
+    let summa = 0
+    if (figure[0]["x"] == figure[figure.length - 1]["x"] && figure[0]["y"] == figure[figure.length - 1]["y"]) {
+        output["type"] = "figure"
     }
+    else {
+        output["type"] = "line"
+    }
+    for (let i = 0; i < figure.length-1; i++) {
         
-  let figure=  loadProducts("points.json")
+      summa+=Math.sqrt(Math.pow(figure[i]["x"]-figure[i+1]["x"],2)+Math.pow(figure[i]["y"]-figure[i+1]["y"],2))
+            
+        
 
+    }
+    output["summa"] = summa
+    return output
+}
 
-
+saveProducts("output.json", searchingTypeFigure("points.json"))
