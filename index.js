@@ -1,5 +1,6 @@
 const { response } = require('express')
 const express = require('express')
+const fs = require("fs");
 const app = express()
 const port = 3000
 app.get("/", (request, response) => {
@@ -80,3 +81,71 @@ app.get("/catalogue", (request, response) => {
 
 // let n = CreateObj()
 // console.log(n)
+function saveData (filename, data) {
+    console.log(data)
+    fs.writeFile(filename, data, (error) => {
+        if(error) throw error; 
+        console.log("Асинхронная запись файла завершена. ");
+
+        
+    });
+}
+function openFile(filename){
+    
+    fs.readFile(filename,"utf8", (error, data) => {
+        
+    if(error){
+            console.log("Ошибка чтения")
+            console.log(error)
+            return
+    }
+        let sum=0
+        let n = data.split(" ")
+        let j =0
+    for(let i=0; i<n.length;i++){
+        sum = sum + Number(n[i])
+        j=j+1
+    }
+        m = sum/j
+        saveData ("output.txt" , m.toString())
+    } )
+    
+}
+let result = openFile("input.txt")
+
+let adidas = {
+    name: "Бутсы Adidas Predator",
+    cost:39999,
+    size:[42,43,44,45],
+    description:"здесь будет описание"
+}
+let nike ={
+    name:"Nike Mercurial",
+    cost:34999,
+    size:[42,43,44,45],
+    description:"здесь будет описание"
+}
+let puma = {
+    name:"Puma Future",
+    cost:9999,
+    size:[7,8,9,10],
+    description:"здесь будет описание"
+}
+products=[adidas, nike, puma]
+
+function saveProducts(filename, products){
+    let dataToSave=JSON.stringify(products)
+    
+    saveData(filename, dataToSave)
+}
+// saveProducts("products.json",products)
+function loadProducts(filename){
+        let downloadData = fs.readFileSync(filename)
+        loadedProduct=JSON.parse(downloadData)
+        return loadedProduct
+    }
+        
+  console.log(loadProducts("products.json"))     
+
+
+
