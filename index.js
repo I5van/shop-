@@ -145,7 +145,7 @@ function loadProducts(filename){
         return loadedProduct
     }
         
-  console.log(loadProducts("products.json"))     
+  let figure=  loadProducts("points.json")
 
 
 
