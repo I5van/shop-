@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalogue.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img src="img/logo.svg" alt="" class="image-logo">
+      <span class="fs-4">Спорттовары у Ивана</span>
+    </a>
+
+
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Главная</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Каталог</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Корзина</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">О нас </a></li>
+
+    </ul>
+  </header>
+  <main>
+    <div class="contents">
+      <div class="filters">
+        <form action="">
+          <p class="product-type">Вид товара</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-football-clothes">
+            <label class="form-check-label" for="flexCheckDefault">
+              <span>Футбольная форма</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-boots">
+            <label class="form-check-label" for="flexCheckChecked">
+              <span>Бутсы</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-balls">
+            <label class="form-check-label" for="flexCheckDefault">
+              <span>Мячи</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-goalkeeper">
+            <label class="form-check-label" for="flexCheckChecked">
+              <span>Вратарская форма</span>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-sport-clothes">
+            <label class="form-check-label" for="flexCheckChecked">
+              <span>Спортивная одежда</span>
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="item-type-accessories">
+            <label class="form-check-label" for="flexCheckChecked">
+              <span>Аксессуары</span>
+            </label>
+          </div>
+          <h3 class="cost-header">Цена</h3>
+          <div class="cost">
+            <input type="number" class="form-control" id="product-cost-min" aria-describedby="emailHelp">
+            <span>&mdash;</span>
+            <input type="number" class="form-control" id="product-cost-max" aria-describedby="emailHelp">
+
+          </div>
+
+
+
+
+          <div id="clothes-size">
+            <label for="customRange3" class="form-label">
+              <p class="size">Размер одежды</p>
+            </label>
+            <input type="range" class="form-range" min="38" max="48" step="2" id="customRange3"
+              list="clothes-size"></label>
+            <datalist>
+              <option value="38" label="S"></option>
+              <option value="40" label="M"></option>
+              <option value="42" label="L"></option>
+              <option value="44" label="XL"></option>
+              <option value="46" label="XXL"></option>
+              <option value="48" label="XXXL"></option>
+            </datalist>
+          </div>
+
+          <div id="boots-size">
+            <label for="customRange3" class="form-label">
+              <p class="size">Размер обуви</p>
+            </label>
+            <input type="range" class="form-range" min="38" max="47" step="1" id="customRange3" list="boots-size"></label>
+            <datalist>
+              <option value="38" label="38"></option>
+              <option value="39" label="39"></option>
+              <option value="40" label="40"></option>
+              <option value="41" label="41"></option>
+              <option value="42" label="42"></option>
+              <option value="43" label="43"></option>
+              <option value="44" label="44"></option>
+              <option value="45" label="45"></option>
+              <option value="46" label="46"></option>
+              <option value="47" label="47"></option>
+            </datalist>
+          </div>
+          <div id="gloves-size">
+            <label for="customRange3" class="form-label">
+              <p class="size">Размер перчаток</p>
+            </label>
+            <input type="range" class="form-range" min="5" max="11" step="1" id="customRange3"
+              list="gloves-size"></label>
+            <datalist>
+              <option value="5" label="5"></option>
+              <option value="6" label="6"></option>
+              <option value="7" label="7"></option>
+              <option value="8" label="8"></option>
+              <option value="9" label="9"></option>
+              <option value="10" label="10"></option>
+              <option value="11" label="11"></option>
+             
+
+            </datalist>
+          </div>
+          <button type="button" class="btn btn-primary">Применить</button>
+        </form>
+      </div>
+      <div class="products">
+        
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          
+        
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          <div class="card products-card" style="width: 18rem;">
+            <img src="img/boots3.jpg" class="card-img-top card-img" alt="...">
+            <div class="card-body">
+              <h5 class="card-title card-heading">Футбольные бутсы adidas Predator Freak+ FG FY6240</h5>
+
+              <p class="card-title card-price">Цена: 39999</p>
+              <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary">39</button>
+                <button type="button" class="btn btn-outline-primary">40</button>
+                <button type="button" class="btn btn-outline-primary">41</button>
+                <button type="button" class="btn btn-outline-primary">42</button>
+                <button type="button" class="btn btn-outline-primary">43</button>
+              </div>
+              <a href="#" class="btn btn-primary card-button">В корзину</a>
+            
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </main>
+
+
+
+
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" class="footer">
+    <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+
+    <a href="/"
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+  </footer>
+  <script src="js/catalogue.js"></script>
+</body>
+
+</html>

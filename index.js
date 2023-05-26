@@ -6,7 +6,7 @@ app.set("view engine","ejs")
 const port = 3000
 app.get("/", (request, response) => {
     context={
-        message:"This is new message"
+        numbers : getNumbers()
     }
     response.render("index", context)
     
@@ -17,8 +17,18 @@ app.listen(port, () => {
 })
 app.use(express.static("static"))
 app.get("/catalogue", (request, response) => {
-    response.sendFile(__dirname + "/index/catalogue.html")
+    context={
+
+    }
+    response.render("catalogue")
 })
+function getNumbers(){
+    let numbers=[]
+    for(let i =0;i<10;i++){
+        numbers.push(Math.floor((Math.random()*100)))
+    }
+    return numbers
+}
 
 // let product1={
 //     count:5000,
