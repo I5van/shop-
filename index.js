@@ -2,9 +2,15 @@ const { response } = require('express')
 const express = require('express')
 const fs = require("fs");
 const app = express()
+app.set("view engine","ejs")
 const port = 3000
 app.get("/", (request, response) => {
-    response.sendFile(__dirname + "/index/index.html")
+    context={
+        message:"This is new message"
+    }
+    response.render("index", context)
+    
+    // response.sendFile(__dirname + "/index/index.html")
 })
 app.listen(port, () => {
     console.log("Start to listen port")
@@ -13,6 +19,7 @@ app.use(express.static("static"))
 app.get("/catalogue", (request, response) => {
     response.sendFile(__dirname + "/index/catalogue.html")
 })
+
 // let product1={
 //     count:5000,
 //     cost:1000,
