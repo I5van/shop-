@@ -101,7 +101,8 @@
             <label for="customRange3" class="form-label">
               <p class="size">Размер обуви</p>
             </label>
-            <input type="range" class="form-range" min="38" max="47" step="1" id="customRange3" list="boots-size"></label>
+            <input type="range" class="form-range" min="38" max="47" step="1" id="customRange3"
+              list="boots-size"></label>
             <datalist>
               <option value="38" label="38"></option>
               <option value="39" label="39"></option>
@@ -129,7 +130,7 @@
               <option value="9" label="9"></option>
               <option value="10" label="10"></option>
               <option value="11" label="11"></option>
-             
+
 
             </datalist>
           </div>
@@ -137,29 +138,38 @@
         </form>
       </div>
       <div class="products">
-        <% for(let j =0; j<products.length; j++){ %>
+        <% for(let j=0; j<products.length; j++){ %>
           <div class="card products-card" style="width: 18rem;">
-            <img src= "<%= products[j]["img"] %>" class="card-img-top card-img" alt="...">
+            <img src="<%= products[j]["img"] %>" class="card-img-top card-img" alt="...">
             <div class="card-body">
-              <h5 class="card-title card-heading"><%= products[j]["name"] %></h5>
+              <h5 class="card-title card-heading">
+                <%= products[j]["name"] %>
+              </h5>
 
-              <p class="card-title card-price"><%= products[j]["cost"] %></p>
+              <p class="card-title card-price">
+                <%= products[j]["cost"] %>
+              </p>
               <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                
-                <% for(let i =0; i<products[j]["size"].length; i++){ %>
-                    <button type="button" class="btn btn-outline-primary"><%= products[j]["size"][i] %> </button>
-               <% } %>
+
+                <% for(let i=0; i<products[j]["size"].length; i++){ %>
+                  <% if( products[j]["size"][i].amount>0){ %>
+                    <button type="button" class="btn btn-outline-primary">
+                      <%= products[j]["size"][i].title %>
+                    </button>
+
+                    <% } %>
+                      <% } %>
               </div>
 
-              <a href="#" class="btn btn-primary card-button">В корзину</a>
-            
+             <div><a href="#" class="btn btn-primary card-button">В корзину</a></div> 
+
             </div>
           </div>
           <% } %>
 
-        
-        </div>
+
       </div>
+    </div>
     </div>
 
 

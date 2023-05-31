@@ -9,12 +9,13 @@
 
 }
 .filters{
-    background: rgb(196, 194, 194);
+    border: 1px solid rgb(218, 213, 213);
     width:30vw ;
 	display: flex;
     align-self: flex-start;
     flex-direction: column;
     padding: 20px;
+    border-radius: 5px;
 }
 .products{
     display: flex;
@@ -86,6 +87,7 @@ datalist option{
 }
 .card-button{
     margin-top: 20px;
+    
 }
 .card-heading{
     font-size: 16px;
@@ -95,5 +97,5 @@ datalist option{
 }
 .card-img{
     height:120px;
-    width: 100%;
+
 }
