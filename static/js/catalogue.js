@@ -1,3 +1,15 @@
+let applyFilterButton = document.querySelector(".btn")
+let clothesSize = document.querySelector("#clothes-size")
+let glovesSize = document.querySelector("#gloves-size")
+let bootsSize = document.querySelector("#boots-size")
+let clothesInput = clothesSize.querySelector("input")
+let glovesInput = glovesSize.querySelector("input")
+let bootsInput = bootsSize.querySelector("input")
+let ItemTypeCheckboxes = document.querySelectorAll("input[id^='item-type']")
+let minCost = document.querySelector("#product-cost-min")
+let maxCost = document.querySelector("#product-cost-max")
+let toBasket = document.querySelector("#busket-button")
+
 function createURLParams(obj) {
     let urlParams = "?"
     for (let key in obj) {
@@ -62,40 +74,41 @@ function createParamObj() {
     }
     return obj
 }
-let n  = createParamObj() 
+
+let n = createParamObj()
 console.log(n)
 
 function applyFilter() {
     filters = {}
     filters.category = categoryCheck()
-    filters.price=priceCheck()
-    sizes=getSizes()
+    filters.price = priceCheck()
+    sizes = getSizes()
     console.log(sizes)
-    
 
-    if("glovesSize"in sizes){
-        filters.glovesSize=sizes.glovesSize
+
+    if ("glovesSize" in sizes) {
+        filters.glovesSize = sizes.glovesSize
     }
-    if("clothesSize"in sizes){
-        filters.clothesSize=sizes.clothesSize
+    if ("clothesSize" in sizes) {
+        filters.clothesSize = sizes.clothesSize
     }
-    if("bootsSize"in sizes){
-        filters.bootsSize=sizes.bootsSize
+    if ("bootsSize" in sizes) {
+        filters.bootsSize = sizes.bootsSize
     }
     console.log(filters)
     let urlParams = createURLParams(filters)
     window.location.replace(window.location.origin + window.location.pathname + urlParams)
 }
-function getSizes(){
-    let sizeObject ={} 
-    if(glovesSize.style.display=="block"){
-       sizeObject.glovesSize=[glovesInput.value]
+function getSizes() {
+    let sizeObject = {}
+    if (glovesSize.style.display == "block") {
+        sizeObject.glovesSize = [glovesInput.value]
     }
-    if(clothesSize.style.display=="block"){
-        sizeObject.clothesSize=[clothesInput.value]
+    if (clothesSize.style.display == "block") {
+        sizeObject.clothesSize = [clothesInput.value]
     }
-    if(bootsSize.style.display=="block"){
-        sizeObject.bootsSize=[bootsInput.value]
+    if (bootsSize.style.display == "block") {
+        sizeObject.bootsSize = [bootsInput.value]
     }
     return sizeObject
 }
@@ -112,82 +125,123 @@ function categoryCheck() {
     return categoryType
 
 }
-function priceCheck(){
-    price=[]
+function priceCheck() {
+    price = []
     price.push(minCost.value)
     price.push(maxCost.value)
-    if(Number(price[0])<0){
-            price[0]="0"
+    if (Number(price[0]) < 0) {
+        price[0] = "0"
     }
-    if(Number(price[1])<0){
-        price[1]="100000"
+    if (Number(price[1]) < 0) {
+        price[1] = "100000"
     }
-    if (Number(price[0])>Number(price[1])){
-        price[1]="100000"
-        price[0]="0"
+    if (Number(price[0]) > Number(price[1])) {
+        price[1] = "100000"
+        price[0] = "0"
     }
-    if (Number(price[1])>100000){
-        price[1]="100000"
+    if (Number(price[1]) > 100000) {
+        price[1] = "100000"
     }
-    if (Number(price[0])>100000){
-        price[0]="0"
+    if (Number(price[0]) > 100000) {
+        price[0] = "0"
     }
-    if (Number(price[1])==0){
-        price[1]="100000"
-        price[0]="0"
+    if (Number(price[1]) == 0) {
+        price[1] = "100000"
+        price[0] = "0"
     }
     return price
 }
 function applyCategoryCheckbox(categories) {
     for (let i = 0; i < categories.length; i++) {
-        for(let j = 0; j < ItemTypeCheckboxes.length; j++){
-            if(ItemTypeCheckboxes[j].id ==`item-type-${categories[i]}`){
-                ItemTypeCheckboxes[j].checked   = true
+        for (let j = 0; j < ItemTypeCheckboxes.length; j++) {
+            if (ItemTypeCheckboxes[j].id == `item-type-${categories[i]}`) {
+                ItemTypeCheckboxes[j].checked = true
             }
         }
     }
 
 }
-function applyPrice(price){
-        minCost.value=price[0]
-        maxCost.value = price[1]
+function applyPrice(price) {
+    minCost.value = price[0]
+    maxCost.value = price[1]
 
-    
+
 }
+// function basketCreate(){
+//     let basketObj ={}
+//     basketObj["title"]=busketTitle
+//     basketObj["size"]=busketSize
+//     basketObj["price"]=busketPrice
 
-let applyFilterButton = document.querySelector(".btn")
-let clothesSize = document.querySelector("#clothes-size")
-let glovesSize = document.querySelector("#gloves-size")
-let bootsSize = document.querySelector("#boots-size")
-let clothesInput = clothesSize.querySelector("input")
-let glovesInput=glovesSize.querySelector("input")
-let bootsInput = bootsSize.querySelector("input")
-let ItemTypeCheckboxes = document.querySelectorAll("input[id^='item-type']")
-let minCost = document.querySelector("#product-cost-min")
-let maxCost = document.querySelector("#product-cost-max")
+
+//     return basketObj 
+// }
+function addToBasket(event) {
+    let size=event.currentTarget.parentNode.parentNode.querySelector("[choice='true']")
+    size.innerHTML
+    console.log( size.innerHTML)
+    console.log(size)
+    console.log(event.currentTarget)
+}
+function addClickEvents() {
+    let buttons = document.querySelectorAll(".card-button")
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = addToBasket
+    }
+}
+function addSizeClicks() {
+    let buttons = document.querySelectorAll(".btn-size")
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = chooseSize
+        
+    }
+}
+function chooseSize(event) {
+    let sizes = event.currentTarget.parentNode.querySelectorAll(".btn-size")
+    for (let i = 0; i < sizes.length; i++) {
+        sizes[i].setAttribute("choice", "false")
+        sizes[i].style.backgroundColor="white"
+        sizes[i].style.color="#0d6efd"
+       
+
+    }
+    event.currentTarget.setAttribute("choice", "true")
+    event.currentTarget.style.backgroundColor ="#0d6efd"
+    event.currentTarget.style.color ="white"
+
+}
+addClickEvents()
+// basket.onclick= basketCreate()
+// let ShopBasket = basketCreate()
+// console.log(ShopBasket)
+
+
+
+
 console.log(ItemTypeCheckboxes)
 applyFilterButton.onclick = applyFilter
 
 
 
 window.onload = () => {
+    addSizeClicks()
     let params = createParamObj()
     if ("category" in params) {
         applySizeRanges(params["category"])
         applyCategoryCheckbox(params["category"])
     }
-    if("price" in params){
+    if ("price" in params) {
         applyPrice(params["price"])
     }
-    if("glovesSize" in params){
-        glovesInput.value=params["glovesSize"][0]
+    if ("glovesSize" in params) {
+        glovesInput.value = params["glovesSize"][0]
     }
-    if("clothesSize" in params){
-        clothesInput.value=params["clothesSize"][0]
+    if ("clothesSize" in params) {
+        clothesInput.value = params["clothesSize"][0]
     }
-    if("bootsSize" in params){
-        
-        bootsInput.value=params["bootsSize"][0]
+    if ("bootsSize" in params) {
+
+        bootsInput.value = params["bootsSize"][0]
     }
 
 }

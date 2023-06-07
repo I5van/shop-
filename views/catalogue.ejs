@@ -142,18 +142,21 @@
           <div class="card products-card" style="width: 18rem;">
             <img src="<%= products[j]["img"] %>" class="card-img-top card-img" alt="...">
             <div class="card-body">
-              <h5 class="card-title card-heading">
+              <h5 class="card-title card-heading" id="card-title">
                 <%= products[j]["name"] %>
               </h5>
 
-              <p class="card-title card-price">
+              <p class="card-title card-price" id="card-price">
                 <%= products[j]["cost"] %>
               </p>
               <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                <button type="button" class="btn btn-outline-primary btn-size " id="card-size" choice="true" style="background-color: #0d6efd; color: white;">
+                  <%= products[j]["size"][0].title %>
+                </button>
 
-                <% for(let i=0; i<products[j]["size"].length; i++){ %>
+                <% for(let i=1; i<products[j]["size"].length; i++){ %>
                   <% if( products[j]["size"][i].amount>0){ %>
-                    <button type="button" class="btn btn-outline-primary">
+                    <button type="button" class="btn btn-outline-primary btn-size" id="card-size">
                       <%= products[j]["size"][i].title %>
                     </button>
 
@@ -161,7 +164,7 @@
                       <% } %>
               </div>
 
-             <div><a href="#" class="btn btn-primary card-button">В корзину</a></div> 
+             <div><a href="#" class="btn btn-primary card-button" id="busket-button">В корзину</a></div> 
 
             </div>
           </div>

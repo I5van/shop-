@@ -96,6 +96,8 @@ datalist option{
     font-size: 14px;
 }
 .card-img{
-    height:120px;
+    height:150px;
+    width: fit-content;
+    margin: auto;
 
 }
