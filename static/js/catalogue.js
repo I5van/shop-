@@ -167,21 +167,34 @@ function applyPrice(price) {
 
 
 }
-// function basketCreate(){
-//     let basketObj ={}
-//     basketObj["title"]=busketTitle
-//     basketObj["size"]=busketSize
-//     basketObj["price"]=busketPrice
+
+function basketCreate(){
+   let massive = addToBasket(event)
+    let basketObj ={}
+    basketObj["title"]=massive[1]
+    basketObj["size"]= massive[2]
+    basketObj["price"]= massive[0]
 
 
-//     return basketObj 
-// }
+ return basketObj
+}
 function addToBasket(event) {
+    let n = []
     let size=event.currentTarget.parentNode.parentNode.querySelector("[choice='true']")
-    size.innerHTML
-    console.log( size.innerHTML)
+    size = size.innerHTML
+    let price = event.currentTarget.parentNode.parentNode.querySelector("#card-price")
+    price = price.innerHTML
+    let title = event.currentTarget.parentNode.parentNode.querySelector("#card-title")
+    title=title.innerHTML
+    n.push(price)
+    n.push(title)
+    n.push(size)
+    console.log(n)
+    console.log (price)
+    console.log( title)
     console.log(size)
     console.log(event.currentTarget)
+    return n
 }
 function addClickEvents() {
     let buttons = document.querySelectorAll(".card-button")
@@ -211,9 +224,8 @@ function chooseSize(event) {
 
 }
 addClickEvents()
-// basket.onclick= basketCreate()
-// let ShopBasket = basketCreate()
-// console.log(ShopBasket)
+let w = basketCreate()
+console.log(w)
 
 
 
