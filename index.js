@@ -25,7 +25,9 @@ app.listen(port, () => {
 })
 app.use(express.static("static"))
 app.get("/catalogue", (request, response) => {
+   
     context={
+        
         products : products
     }
     response.render("catalogue", context)

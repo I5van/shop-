@@ -9,6 +9,8 @@ let ItemTypeCheckboxes = document.querySelectorAll("input[id^='item-type']")
 let minCost = document.querySelector("#product-cost-min")
 let maxCost = document.querySelector("#product-cost-max")
 let toBasket = document.querySelector("#busket-button")
+let basket = []
+let basketButton= document.querySelector(".basket-count")
 
 function createURLParams(obj) {
     let urlParams = "?"
@@ -168,34 +170,32 @@ function applyPrice(price) {
 
 }
 
-function basketCreate(){
-   let massive = addToBasket(event)
-    let basketObj ={}
-    basketObj["title"]=massive[1]
-    basketObj["size"]= massive[2]
-    basketObj["price"]= massive[0]
-
-
- return basketObj
-}
+let temp=null
 function addToBasket(event) {
-    let n = []
+    let basketObj ={}
     let size=event.currentTarget.parentNode.parentNode.querySelector("[choice='true']")
     size = size.innerHTML
     let price = event.currentTarget.parentNode.parentNode.querySelector("#card-price")
     price = price.innerHTML
     let title = event.currentTarget.parentNode.parentNode.querySelector("#card-title")
     title=title.innerHTML
-    n.push(price)
-    n.push(title)
-    n.push(size)
-    console.log(n)
-    console.log (price)
-    console.log( title)
+    temp = event.currentTarget.parentNode.parentNode.querySelector("#card-title")
+    console.log(event.currentTarget.parentNode.parentNode.querySelector("[choice='true']"))
+    console.log(event.currentTarget.parentNode.parentNode.querySelector("#card-price"))
+    console.log(event.currentTarget.parentNode.parentNode.querySelector("#card-title"))
+    console.log(title)
     console.log(size)
-    console.log(event.currentTarget)
-    return n
+    console.log(price)
+    basketObj["title"]=title
+    basketObj["size"]= size
+    basketObj["price"]= price
+    basket.push(basketObj)
+    basketButton.innerHTML=basket.length
+    
+   basketButton.style.display="block"
+    console.log(basket)
 }
+
 function addClickEvents() {
     let buttons = document.querySelectorAll(".card-button")
     for (let i = 0; i < buttons.length; i++) {
@@ -224,9 +224,6 @@ function chooseSize(event) {
 
 }
 addClickEvents()
-let w = basketCreate()
-console.log(w)
-
 
 
 

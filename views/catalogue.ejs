@@ -23,7 +23,7 @@
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Главная</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Каталог</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Корзина</a></li>
+      <li class="nav-item"id="toBasket"><a href="#" class="nav-link" >Корзина</a><div class="basket-count"></div></li>
       <li class="nav-item"><a href="#" class="nav-link">О нас </a></li>
 
     </ul>
@@ -142,23 +142,15 @@
           <div class="card products-card" style="width: 18rem;">
             <img src="<%= products[j]["img"] %>" class="card-img-top card-img" alt="...">
             <div class="card-body">
-              <h5 class="card-title card-heading" id="card-title">
-                <%= products[j]["name"] %>
-              </h5>
+              <h5 class="card-title card-heading" id="card-title"><%= products[j]["name"] %></h5>
 
-              <p class="card-title card-price" id="card-price">
-                <%= products[j]["cost"] %>
-              </p>
+              <p class="card-title card-price" id="card-price"><%= products[j]["cost"] %></p>
               <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                <button type="button" class="btn btn-outline-primary btn-size " id="card-size" choice="true" style="background-color: #0d6efd; color: white;">
-                  <%= products[j]["size"][0].title %>
-                </button>
+                <button type="button" class="btn btn-outline-primary btn-size " id="card-size" choice="true" style="background-color: #0d6efd; color: white;"><%= products[j]["size"][0].title %></button>
 
                 <% for(let i=1; i<products[j]["size"].length; i++){ %>
                   <% if( products[j]["size"][i].amount>0){ %>
-                    <button type="button" class="btn btn-outline-primary btn-size" id="card-size">
-                      <%= products[j]["size"][i].title %>
-                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-size" id="card-size"><%= products[j]["size"][i].title %></button>
 
                     <% } %>
                       <% } %>
@@ -202,6 +194,19 @@
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
     </ul>
   </footer>
+  <div class="basket-background">
+<div class="basket-popup">
+  <div class="popup-head"><h2 >Корзина</h2></div>
+  <div>
+  <div class="popup-img">
+    <img src="img/boots.jpg" alt="">
+  </div>
+  <div class="popup-title"><p>Бутсы Adidas Predator</p></div>
+  <div class="popup-size"><p>43</p></div>
+  <div class="popup-price"><p>39999</p></div>
+</div>
+</div>
+</div>
   <script src="js/catalogue.js"></script>
 </body>
 
