@@ -148,17 +148,19 @@ datalist option {
     height: 80%;
     background-color: white;
     display: flex;
-    justify-content: center;
+    
     border: solid black 3px;
     flex-direction: column;
+    padding: 20px;
 }
 
-.popup-head {
-    font-size: 19px;
-    font-weight: 400;
+.popup-head h2 {
+    font-size: 40px;
+    font-weight: 600;
     width: 100%;
     display: flex;
     justify-content: center;
+    
 
 }
 
@@ -174,18 +176,58 @@ datalist option {
 }
 
 .popup-img img {
-    width: 25%;
+    width: 100%;
 
+}
+.popup-img{
+    width: 25%;
+    display: inline-block;
+    margin-right: 50px;
 }
 
 .popup-title {
-
+font-size: 15px;
+font-weight: 400;
 }
 
 .popup-size {
-
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .popup-price {
-
+    font-size: 15px;
+    font-weight: 400;
+}
+.popup-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 40px;
+}
+.popup-data{
+    width: 50%;
+    display: inline-flex;
+ 
+    align-items: flex-start;
+    flex-direction: column;
+}
+.price-block{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.basket-price{
+    font-size: 25px;
+    font-weight: 600;
+}
+.price-button{
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 3px;
 }
