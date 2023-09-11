@@ -170,7 +170,7 @@ datalist option {
     top: 0;
     width: 98vw;
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -181,7 +181,13 @@ datalist option {
     width: 100px;
   
 }
-
+.close-button img{
+    position: absolute;
+    top:70px;
+    right: 150px;
+    width: 40px;
+    height: 40px;
+}
 
 .popup-content{
     display: flex;

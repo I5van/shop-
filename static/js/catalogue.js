@@ -11,7 +11,23 @@ let maxCost = document.querySelector("#product-cost-max")
 let toBasket = document.querySelector("#busket-button")
 let basket = []
 let basketButton= document.querySelector(".basket-count")
+let buttonBasketOpen = document.querySelector("#toBasket")
+let basketPopup = document.querySelector(".basket-background")
+let basketCloseButton = document.querySelector(".close-button img")
+let basketTotalPrice=document.querySelector(".basket-price")
 
+buttonBasketOpen.onclick= basketAppear
+basketCloseButton.onclick=basketClose
+function basketAppear(){
+ basketPopup.style.display="flex"
+ 
+ let totalPrice = countTotalPrice()
+ basketTotalPrice.innerHTML="Итого: "+totalPrice
+
+}
+function basketClose(){
+    basketPopup.style.display="none"
+}
 function createURLParams(obj) {
     let urlParams = "?"
     for (let key in obj) {
@@ -253,4 +269,11 @@ window.onload = () => {
         bootsInput.value = params["bootsSize"][0]
     }
 
+}
+function countTotalPrice(){
+    let sum = 0
+    for(let i =0;i<basket.length;i++){
+        sum=sum+Number(basket[i]["price"])
+    }
+    return sum
 }
