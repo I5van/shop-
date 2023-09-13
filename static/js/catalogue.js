@@ -15,12 +15,15 @@ let buttonBasketOpen = document.querySelector("#toBasket")
 let basketPopup = document.querySelector(".basket-background")
 let basketCloseButton = document.querySelector(".close-button img")
 let basketTotalPrice=document.querySelector(".basket-price")
+let basketContent = document.querySelector(".popup-content")
+
+
 
 buttonBasketOpen.onclick= basketAppear
 basketCloseButton.onclick=basketClose
 function basketAppear(){
  basketPopup.style.display="flex"
- 
+ basketRender()
  let totalPrice = countTotalPrice()
  basketTotalPrice.innerHTML="Итого: "+totalPrice
 
@@ -202,9 +205,13 @@ function addToBasket(event) {
     console.log(title)
     console.log(size)
     console.log(price)
+    let image = event.currentTarget.parentNode.parentNode.parentNode.querySelector("#card-image")
+    console.log(image)
+    image = image.getAttribute("src")
     basketObj["title"]=title
     basketObj["size"]= size
     basketObj["price"]= price
+    basketObj["image"]=image
     basket.push(basketObj)
     basketButton.innerHTML=basket.length
     
@@ -246,6 +253,51 @@ addClickEvents()
 console.log(ItemTypeCheckboxes)
 applyFilterButton.onclick = applyFilter
 
+function countTotalPrice(){
+    let sum = 0
+    for(let i =0;i<basket.length;i++){
+        sum=sum+Number(basket[i]["price"])
+    }
+    return sum
+}
+function basketRender(){
+    let node= document.querySelector("#basket-table")
+   basketContent.removeChild(node)
+   let table = document.createElement("table")
+   let headers = document.createElement("tr")
+   let headerPhoto = document.createElement("th")
+   headerPhoto.innerHTML="Фото"
+   let headerModel = document.createElement("th")
+   headerModel.innerHTML="Модель"
+   let headerSize = document.createElement("th")
+   headerSize.innerHTML="Размер"
+   let headerPrice = document.createElement("th")
+   headerPrice.innerHTML="Цена"
+   headers.appendChild(headerPhoto)
+   headers.appendChild(headerModel)
+   headers.appendChild(headerSize)
+   headers.appendChild(headerPrice)
+   table.appendChild(headers )
+   
+   let price = document.createElement("td")
+   price.innerHTML="4000"
+   let photo = document.createElement("td")
+   photo.innerHTML="Фото"
+   let model = document.createElement("td")
+   model.innerHTML="Nike"
+   let size = document.createElement("td")
+   size.innerHTML="L"
+    let tableBasketRow=document.createElement("tr")
+    tableBasketRow.appendChild(price)
+    tableBasketRow.appendChild(photo)
+    tableBasketRow.appendChild(model)
+    tableBasketRow.appendChild(size)
+    table.appendChild(tableBasketRow)
+    basketContent.appendChild(table)
+
+   
+}
+
 
 
 window.onload = () => {
@@ -269,11 +321,4 @@ window.onload = () => {
         bootsInput.value = params["bootsSize"][0]
     }
 
-}
-function countTotalPrice(){
-    let sum = 0
-    for(let i =0;i<basket.length;i++){
-        sum=sum+Number(basket[i]["price"])
-    }
-    return sum
 }

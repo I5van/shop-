@@ -142,7 +142,7 @@
       <div class="products">
         <% for(let j=0; j<products.length; j++){ %>
           <div class="card products-card" style="width: 18rem;">
-            <img src="<%= products[j]["img"] %>" class="card-img-top card-img" alt="...">
+            <img src="<%= products[j]["img"] %>" id = "card-image" class="card-img-top card-img" alt="...">
             <div class="card-body">
               <h5 class="card-title card-heading" id="card-title">
                 <%= products[j]["name"] %>
@@ -206,12 +206,12 @@
     </ul>
   </footer>
   <div class="basket-background">
-    <div class="basket-popup">
+    <div class="basket-popup" >
       <div class="popup-head">
         <h2>Корзина</h2>
       </div>
       <div class="popup-content">
-      <table>
+      <table id="basket-table">
         <tr><th>Фото</th><th>Модель</th><th>Размер</th><th>Цена</th></tr>
         <tr><td><img src="img/boots.jpg" alt="" class="popup-img"></td><td>Adidas Predator</td><td>43</td><td>39999</td></tr>
         <tr><td><img src="img/boots2.jpg" alt="" class="popup-img"></td><td>Adidas Predator</td><td>43</td><td >39999</td></tr>
