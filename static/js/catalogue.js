@@ -264,6 +264,7 @@ function basketRender(){
     let node= document.querySelector("#basket-table")
    basketContent.removeChild(node)
    let table = document.createElement("table")
+   table.setAttribute("id","basket-table")
    let headers = document.createElement("tr")
    let headerPhoto = document.createElement("th")
    headerPhoto.innerHTML="Фото"
@@ -279,25 +280,44 @@ function basketRender(){
    headers.appendChild(headerPrice)
    table.appendChild(headers )
    
-   let price = document.createElement("td")
-   price.innerHTML="4000"
-   let photo = document.createElement("td")
-   photo.innerHTML="Фото"
-   let model = document.createElement("td")
-   model.innerHTML="Nike"
-   let size = document.createElement("td")
-   size.innerHTML="L"
+   
+   for(let i =0; i<basket.length;i++){
+    
+
+
+    let photo = document.createElement("td")
+    let closeButton=document.createElement("td")
+    let closeButtonImg = document.createElement("img")
+    closeButtonImg.setAttribute("src","img/close.png")
+    closeButtonImg.setAttribute("class","close-line-button")
+    let image = document.createElement("img")
+    image.setAttribute("src",basket[i]["image"])
+    image.setAttribute("class","popup-img")
+    let model = document.createElement("td")
+    model.innerHTML= basket[i]["title"]
+    let size = document.createElement("td")
+    size.innerHTML= basket[i]["size"]
+    let price = document.createElement("td")
+    price.innerHTML= basket[i]["price"]
     let tableBasketRow=document.createElement("tr")
-    tableBasketRow.appendChild(price)
+    photo.appendChild(image)
+    closeButton.appendChild(closeButtonImg)
     tableBasketRow.appendChild(photo)
     tableBasketRow.appendChild(model)
     tableBasketRow.appendChild(size)
+    tableBasketRow.appendChild(price)
+    tableBasketRow.appendChild(closeButton)
+
     table.appendChild(tableBasketRow)
     basketContent.appendChild(table)
-
-   
+    closeButtonImg.onclick=deleteBasketElement
 }
 
+}
+
+function deleteBasketElement(){
+console.log("Удаление элемента")
+}
 
 
 window.onload = () => {
