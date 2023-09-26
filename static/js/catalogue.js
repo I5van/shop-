@@ -10,7 +10,7 @@ let minCost = document.querySelector("#product-cost-min")
 let maxCost = document.querySelector("#product-cost-max")
 let toBasket = document.querySelector("#busket-button")
 let basket = []
-let basketButton= document.querySelector(".basket-count")
+let basketButtonCount= document.querySelector(".basket-count")
 let buttonBasketOpen = document.querySelector("#toBasket")
 let basketPopup = document.querySelector(".basket-background")
 let basketCloseButton = document.querySelector(".close-button img")
@@ -24,8 +24,7 @@ basketCloseButton.onclick=basketClose
 function basketAppear(){
  basketPopup.style.display="flex"
  basketRender()
- let totalPrice = countTotalPrice()
- basketTotalPrice.innerHTML="Итого: "+totalPrice
+
 
 }
 function basketClose(){
@@ -208,14 +207,14 @@ function addToBasket(event) {
     let image = event.currentTarget.parentNode.parentNode.parentNode.querySelector("#card-image")
     console.log(image)
     image = image.getAttribute("src")
-    basketObj["title"]=title
-    basketObj["size"]= size
-    basketObj["price"]= price
-    basketObj["image"]=image
+    basketObj["title"]=title.trim()
+    basketObj["size"]= size.trim()
+    basketObj["price"]= price.trim()
+    basketObj["image"]=image.trim()
     basket.push(basketObj)
-    basketButton.innerHTML=basket.length
+    basketButtonCount.innerHTML=basket.length
     
-   basketButton.style.display="block"
+   basketButtonCount.style.display="block"
     console.log(basket)
 }
 
@@ -295,6 +294,7 @@ function basketRender(){
     image.setAttribute("class","popup-img")
     let model = document.createElement("td")
     model.innerHTML= basket[i]["title"]
+    model.setAttribute("id","basketElementTitle")
     let size = document.createElement("td")
     size.innerHTML= basket[i]["size"]
     let price = document.createElement("td")
@@ -309,14 +309,34 @@ function basketRender(){
     tableBasketRow.appendChild(closeButton)
 
     table.appendChild(tableBasketRow)
-    basketContent.appendChild(table)
+    
     closeButtonImg.onclick=deleteBasketElement
 }
+basketContent.appendChild(table)
+let totalPrice = countTotalPrice()
+basketTotalPrice.innerHTML="Итого: "+totalPrice
+basketButtonCount.innerHTML=basket.length
+    
+basketButtonCount.style.display="block"
+if(basket.length==0){
+    basketButtonCount.style.display="none"
+}
 
 }
 
-function deleteBasketElement(){
+function deleteBasketElement(event){
 console.log("Удаление элемента")
+let target = event.currentTarget.parentNode.parentNode.querySelector("#basketElementTitle").innerHTML
+
+for(let i =0;i<basket.length;i++){
+    console.log(basket[i]["title"])
+    if(basket[i]["title"] == target){
+        basket.splice(i,1)
+        console.log("удаление произошло")
+        
+    }
+}
+    basketRender()
 }
 
 
