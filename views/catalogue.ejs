@@ -231,16 +231,26 @@
   </div>
   <div class="form-popup-background">
     <div class="form-popup">
-      <div class="personall-information">
       
-      </div>
-      <div class="place-time-delivery">
+        <form class="personall-information">
+          <input type="text" placeholder="Фамилия" id="surname">
+          <input type="text" placeholder="Имя" id ="name">
+          <input type="text" placeholder="Номер телефона" id ="phone-number">
+          <input type="text" placeholder="Адресс эл. почты" id = "email">
+        </form>
       
-      </div>
+      <form class="place-time-delivery">
+        <input type="text" placeholder="Адрес">
+        <input type="text" placeholder="Время доставки">
+      </form>
       <div class="comments-for-deliver">
+       <textarea name="" id="" cols="30" rows="10" placeholder="Комментарии курьеру" class="comments"></textarea>
       
       </div>
-      <button>Отправить заказ</button>
+      <div class="form-delivery-button">
+        <button class="form-popup-button">Отправить заказ</button>
+      </div>
+      
     </div>
   </div>
 

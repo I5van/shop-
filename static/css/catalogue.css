@@ -265,4 +265,62 @@ table {
     height: 20px;
     position: relative;
    
+    
+  }
+  .form-popup-background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 98vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-popup{
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border: solid black 3px;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .personall-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+  }
+  .place-time-delivery{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 15%;
+  }
+  .comments-for-deliver{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 100px 0px 100px;
+  }
+  .comments{
+    width: 90%;
+    height: 50px;
+  }
+  .form-popup-button{
+    background-color: #0d6efd;
+    color: white;
+    border: none ;
+    width: 250px;
+    height: 30px;
+    border-radius: 7%;
+    
+  }
+  .form-delivery-button{
+    display: flex;
+    justify-content: center;
+  }
+  .personall-information input{
+    width: 90%;
   }

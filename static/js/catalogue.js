@@ -16,6 +16,14 @@ let basketPopup = document.querySelector(".basket-background")
 let basketCloseButton = document.querySelector(".close-button img")
 let basketTotalPrice=document.querySelector(".basket-price")
 let basketContent = document.querySelector(".popup-content")
+let formPopup = document.querySelector(".form-popup-background")
+let basketFormationButton=document.querySelector(".price-button")
+let surname = document.querySelector("#surname")
+let username = document.querySelector("#name")
+let email = document.querySelector("#email")
+let phoneNumber = document.querySelector("#phone-number")
+let formPopupButton = document.querySelector(".form-popup-button")
+
 
 
 
@@ -24,8 +32,30 @@ basketCloseButton.onclick=basketClose
 function basketAppear(){
  basketPopup.style.display="flex"
  basketRender()
+}
 
 
+
+
+basketFormationButton.onclick= formationPopupAppear
+formPopupButton.onclick=makeOrder
+function makeOrder(){
+    localStorage.setItem("name", username.value)
+    localStorage.setItem("surname",surname.value)
+    localStorage.setItem("email", email.value)
+    localStorage.setItem("phone-number", phoneNumber.value)
+     
+    
+}
+
+
+
+function formationPopupAppear(){
+    formPopup.style.display ="flex"
+    email.value=localStorage.getItem("email")
+    username.value=localStorage.getItem("name")
+    surname.value=localStorage.getItem("surname")
+    phoneNumber.value=localStorage.getItem("phone-number")
 }
 function basketClose(){
     basketPopup.style.display="none"
