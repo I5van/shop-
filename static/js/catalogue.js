@@ -33,8 +33,19 @@ function basketAppear(){
  basketPopup.style.display="flex"
  basketRender()
 }
-
-
+function saveBasket(){
+    let dataToSave  = JSON.stringify(basket)
+    sessionStorage.setItem("basket",dataToSave)
+}
+function loadBasket(){
+    let dataToLoad=sessionStorage.getItem("basket")
+    if (dataToLoad){
+    basket=JSON.parse(dataToLoad)
+    basketButtonCount.innerHTML=basket.length
+    
+   basketButtonCount.style.display="block"
+}
+}
 
 
 basketFormationButton.onclick= formationPopupAppear
@@ -242,6 +253,7 @@ function addToBasket(event) {
     basketObj["price"]= price.trim()
     basketObj["image"]=image.trim()
     basket.push(basketObj)
+    saveBasket()
     basketButtonCount.innerHTML=basket.length
     
    basketButtonCount.style.display="block"
@@ -290,6 +302,7 @@ function countTotalPrice(){
     return sum
 }
 function basketRender(){
+   
     let node= document.querySelector("#basket-table")
    basketContent.removeChild(node)
    let table = document.createElement("table")
@@ -390,5 +403,5 @@ window.onload = () => {
 
         bootsInput.value = params["bootsSize"][0]
     }
-
+    loadBasket()
 }
